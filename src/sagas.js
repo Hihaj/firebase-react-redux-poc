@@ -21,7 +21,7 @@ export const accountsSaga = function* () {
   try {
     while (true) {
       const { value } = yield take(channel);
-      yield put(accounts.actions.accountsUpdated({ accounts: value }));
+      yield put(accounts.actions.accountsUpdated({ accounts: value || {} }));
     }
   } finally {
     // This is executed if the channel terminates for some reason.
